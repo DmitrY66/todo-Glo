@@ -42,7 +42,6 @@ const render = function () {
       localStorage.setItem('todoData', JSON.stringify(todoData));
       render();
     });
-
   });
 };
 
@@ -51,7 +50,6 @@ todoControl.addEventListener('submit', function (e) {
 
   if (headerInput.value.trim() === '') {
     todoControl.children[0].children[0].placeholder = 'Это поле необходдимо заполнить!';
-    
   } else {
     const newTodo = {
       value: headerInput.value,
