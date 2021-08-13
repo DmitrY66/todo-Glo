@@ -7,7 +7,7 @@ const todoCompleted = document.querySelector('.todo-completed');
 
 let todoData = [];
 
-todoData = JSON.parse(localStorage.getItem('todoData'));
+todoData = JSON.parse(localStorage.getItem('todoData')) || [];
 
 const render = function () {
   todoList.textContent = '';
@@ -50,7 +50,8 @@ todoControl.addEventListener('submit', function (e) {
   e.preventDefault();
 
   if (headerInput.value.trim() === '') {
-    alert('куку');
+    todoControl.children[0].children[0].placeholder = 'Это поле необходдимо заполнить!';
+    
   } else {
     const newTodo = {
       value: headerInput.value,
@@ -60,6 +61,7 @@ todoControl.addEventListener('submit', function (e) {
     render();
     headerInput.value = '';
     localStorage.setItem('todoData', JSON.stringify(todoData));
+    todoControl.children[0].children[0].placeholder = 'Какие планы?';
   }
 });
 
